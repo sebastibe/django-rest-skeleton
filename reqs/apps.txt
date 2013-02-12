@@ -1,0 +1,3 @@
+djangorestframework==2.1.17
+south==0.7.6
+pytz

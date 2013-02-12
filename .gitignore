@@ -1,0 +1,58 @@
+*.db
+jst.js
+prod.ini
+data/
+*.swo
+# web assets generated directory
+gen/
+.webassets-cache/
+.DS_Store
+
+# Ignore built docs..
+docs/build
+docs/html
+
+*.py[co]
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+_build
+eggs
+parts
+bin
+develop-eggs
+.installed.cfg
+local_settings.py
+local_settings.py
+
+# Installer logs
+pip-log.txt
+logs
+*.log
+*.pid
+
+# Unit test / coverage reports
+.coverage
+.tox
+
+# Vim
+*.swp
+.rope*
+
+# Emacs
+*\#
+.\#*
+
+# backup files
+*.bak
+
+# Tags for git-helpers
+tags
+
+nohup.out
+
+# Vagrant
+.vagrant
