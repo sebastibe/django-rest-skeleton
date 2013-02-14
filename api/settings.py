@@ -83,6 +83,8 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    # Uncomment the next line for CORS support
+    # 'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -114,12 +116,14 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 
     # external
+    # Uncomment the next line to enable CORS with django-cors-headers
+    # 'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
     'south',
 
     # internal
-    'users',
+    'api.users',
 )
 
 # A sample logging configuration. The only tangible logging
