@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import patterns, include, url
+from django.http import HttpResponse
+
+from rest_framework.urlpatterns import format_suffix_patterns
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -7,12 +10,27 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'api.views.home', name='home'),
-    # url(r'^api/', include('api.foo.urls')),
+    url(r'^$', 'api.views.api_root', name='home'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
+)
+
+# Format suffixes
+urlpatterns = format_suffix_patterns(urlpatterns, allowed=['json', 'html', 'xml'])
+
+# Default login/logout views
+urlpatterns += patterns('rest_framework',
+    url(r'^auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^auth-token/', 'authtoken.views.obtain_auth_token', name='auth-token'),
+)
+
+# Disallow robots to crawl the doc
+urlpatterns += patterns('',
+    url(r'^robots\.txt$',
+        lambda r: HttpResponse("User-agent: *\nDisallow: /",
+                               mimetype="text/plain")),
 )
