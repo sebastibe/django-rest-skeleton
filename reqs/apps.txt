@@ -1,4 +1,4 @@
-djangorestframework==2.2.0
+djangorestframework==2.2.1
 django-cors-headers==0.05
 south==0.7.6
 pytz
