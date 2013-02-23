@@ -116,6 +116,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 
     # external
+    'django_extensions',
     # Uncomment the next line to enable CORS with django-cors-headers
     # 'corsheaders',
     'rest_framework',
