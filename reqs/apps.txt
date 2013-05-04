@@ -1,4 +1,5 @@
-djangorestframework==2.2.1
-django-cors-headers==0.06
+djangorestframework==2.2.7
+django-cors-headers==0.10
+django-filter==0.6
 south==0.7.6
 pytz

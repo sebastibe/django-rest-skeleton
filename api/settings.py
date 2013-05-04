@@ -117,6 +117,7 @@ INSTALLED_APPS = (
 
     # external
     'django_extensions',
+    'django_filters',
     # Uncomment the next line to enable CORS with django-cors-headers
     # 'corsheaders',
     'rest_framework',
@@ -169,15 +170,16 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
         'rest_framework.renderers.XMLRenderer',
-        ),
+    ),
     'DEFAULT_PARSER_CLASSES': (
         'rest_framework.parsers.JSONParser',
         'rest_framework.parsers.FormParser',
         'rest_framework.parsers.MultiPartParser',
         'rest_framework.parsers.XMLParser',
-        ),
+    ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
-        ),
+    ),
+    'FILTER_BACKEND': 'rest_framework.filters.DjangoFilterBackend',
 }
