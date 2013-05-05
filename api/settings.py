@@ -17,7 +17,10 @@ ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
+COMPANY = 'Acme'
+
 VERSION = (0, 1, 0)
+VERSION_STRING = '%s.%s.%s' % VERSION
 
 MANAGERS = ADMINS
 
@@ -125,6 +128,7 @@ INSTALLED_APPS = (
     'south',
 
     # internal
+    'api.utils',
     'api.users',
 )
 

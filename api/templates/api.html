@@ -1,0 +1,24 @@
+{% extends "rest_framework/base.html" %}
+{% load rest_framework %}
+{% load settings_value %}
+
+{% block title %}{% settings_value "PROJECT" %}{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "rest_framework/css/bootstrap-tweaks.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "rest_framework/css/prettify.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "rest_framework/css/default.css" %}"/>
+{% endblock %}
+
+{% block branding %}<a href={% settings_value "HOST" %}>{% settings_value "PROJECT" %} <span class="version">{% settings_value "VERSION_STRING" %}</span></a>{% endblock %}
+
+{% block footer %}
+<footer class="footer">
+  <div class="container">
+    <p>
+      © {% settings_value "COMPANY" %} {% now "Y" %}. All right reserved.
+    </p>
+  </div>
+</footer>
+{% endblock %}

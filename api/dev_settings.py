@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+PROJECT = 'Django REST Skeleton (Dev)'
+HOST = 'http://localhost'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
