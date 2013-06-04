@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 # Django settings for api project.
 
-import sys
 import os.path
-import posixpath
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 BASE_PATH = os.path.dirname(PROJECT_ROOT)
