@@ -1,0 +1,12 @@
+# ~/.tmuxinator/project.yml
+# A sample tmuxinator config for PROJECT local development.
+# Copy it to your ~/.tmuxinator folder and modify it to match your environment.
+# Replace project by your project name
+
+project_name: project
+project_root: ~/Dev/project/src/project
+pre: pg_ctl -D ~/Dev/project/data start
+tabs:
+  - shell: workon project && cd project
+  - runserver: workon project && cd project && python manage.py runserver
+  - redis: redis-server
