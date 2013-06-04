@@ -11,6 +11,7 @@ This is an opinionated [Django][django] project skeleton based on:
 * Migrations with [South][south]
 * Deployment with [fabric][fabric]
 * Documentation with [Sphinx][sphinx]
+* Cache with [Redis][redis]
 
 ---
 
@@ -24,6 +25,10 @@ Setup [PostgreSQL][postgresql], preferably by running the commands as a
     $ createdb -O database-user database-name
 
 No need of `-d` option when creating database in production.
+
+Install and run [Redis][redis]:
+
+    $ redis-server
 
 
 Project layout
@@ -116,3 +121,4 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 [supervisord]: http://supervisord.org/
 [markdown]: http://pypi.python.org/pypi/Markdown/
 [postgresql]: http://www.postgresql.org/
+[redis]: http://redis.io/
