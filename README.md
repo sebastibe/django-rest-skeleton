@@ -20,8 +20,10 @@ Database
 Setup [PostgreSQL][postgresql], preferably by running the commands as a
 `postgres` user with `sudo -u postgres`:
 
-    $ createuser -D -A -P database-user
+    $ createuser -d -A -P database-user
     $ createdb -O database-user database-name
+
+No need of `-d` option when creating database in production.
 
 
 Project layout
