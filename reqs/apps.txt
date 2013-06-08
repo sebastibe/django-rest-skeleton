@@ -2,5 +2,6 @@ djangorestframework==2.3.5
 django-cors-headers==0.11
 django-filter==0.6
 defusedxml==0.4.1
+django-oauth2-provider==0.2.4
 south==0.7.6
 pytz
