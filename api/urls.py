@@ -26,6 +26,7 @@ urlpatterns = format_suffix_patterns(urlpatterns, allowed=['json', 'html', 'xml'
 urlpatterns += patterns('rest_framework',
     url(r'^auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^auth-token/', 'authtoken.views.obtain_auth_token', name='auth-token'),
+    # url(r'^oauth2/', include('provider.oauth2.urls', namespace = 'oauth2')),
 )
 
 # Disallow robots to crawl the doc

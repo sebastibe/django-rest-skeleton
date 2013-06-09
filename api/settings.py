@@ -119,11 +119,14 @@ INSTALLED_APPS = (
     # external
     'django_extensions',
     'django_filters',
-    # Uncomment the next line to enable CORS with django-cors-headers
-    # 'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
     'south',
+    # OAuth 2.0
+    # 'provider',
+    # 'provider.oauth2',
+    # Uncomment the next line to enable CORS with django-cors-headers
+    # 'corsheaders',
 
     # internal
     'api.utils',
