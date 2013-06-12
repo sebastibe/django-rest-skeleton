@@ -10,3 +10,4 @@ tabs:
   - shell: workon project && cd project
   - runserver: workon project && cd project && python manage.py runserver
   - redis: redis-server
+  - mails: workon project && python -m smtpd -n -c DebuggingServer localhost:1025

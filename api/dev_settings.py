@@ -5,6 +5,9 @@ HOST = 'http://localhost'
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
