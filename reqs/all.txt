@@ -2,3 +2,5 @@
 -r apps.txt
 -r database.txt
 -r testing.txt
+-r deploy.txt
+-r dev.txt
