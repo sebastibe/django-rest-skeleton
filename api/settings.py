@@ -17,7 +17,7 @@ ADMINS = (
 
 COMPANY = 'Acme'
 
-VERSION = (0, 1, 0)
+VERSION = (0, 1, 0)  # (Major, Minor, Release)
 VERSION_STRING = '%s.%s.%s' % VERSION
 
 MANAGERS = ADMINS
@@ -122,6 +122,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'rest_framework.authtoken',
     'south',
+    'gunicorn',
     # OAuth 2.0
     # 'provider',
     # 'provider.oauth2',
