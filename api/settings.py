@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 # Django settings for api project.
 
-import os.path
+import os
+
+import dj_database_url
+
+DEBUG = bool(os.environ.get('DEBUG', False))
+TEMPLATE_DEBUG = DEBUG
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 BASE_PATH = os.path.dirname(PROJECT_ROOT)
-
-try:
-    from local_settings import *
-except:
-    from dev_settings import *
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -43,18 +43,18 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: '/home/media/media.lawrence.com/media/'
-MEDIA_ROOT = ''
+MEDIA_ROOT = os.environ.get('MEDIA_ROOT', '')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: 'http://media.lawrence.com/media/', 'http://example.com/media/'
-MEDIA_URL = ''
+MEDIA_URL = os.environ.get('MEDIA_URL', '')
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' 'static/' subdirectories and in STATICFILES_DIRS.
 # Example: '/home/media/media.lawrence.com/static/'
-STATIC_ROOT = os.path.join(BASE_PATH, "static")
+STATIC_ROOT = os.path.join(BASE_PATH, 'static')
 
 # URL prefix for static files.
 # Example: 'http://media.lawrence.com/static/'
@@ -74,7 +74,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'ifr&amp;goy6ths8y!ewc%ioaunx=!7i*0i@b!d^b)5(lfhjj@otou'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -117,7 +117,6 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 
     # external
-    'django_extensions',
     'django_filters',
     'rest_framework',
     'rest_framework.authtoken',
@@ -133,6 +132,30 @@ INSTALLED_APPS = (
     'api.utils',
     'api.users',
 )
+
+if 'SENTRY_DSN' in os.environ:
+    INSTALLED_APPS += (
+        'raven.contrib.django',
+    )
+
+OPTIONAL_APPS = (
+    "debug_toolbar",
+    "django_extensions",
+)
+
+if DEBUG:
+    for app in OPTIONAL_APPS:
+        if app not in INSTALLED_APPS:
+            try:
+                __import__(app)
+            except ImportError:
+                pass
+            else:
+                INSTALLED_APPS += (app,)
+
+if "debug_toolbar" in INSTALLED_APPS:
+    debug_mw = "debug_toolbar.middleware.DebugToolbarMiddleware"
+    MIDDLEWARE_CLASSES += (debug_mw,)
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -188,4 +211,28 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ),
     'FILTER_BACKEND': 'rest_framework.filters.DjangoFilterBackend',
+}
+
+
+PROJECT = os.environ.get('PROJECT_NAME', 'Django REST Skeleton')
+HOST = os.environ.get('HOST', 'http://localhost')
+
+EMAIL_HOST = os.environ.get('EMAIL_HOST', 'localhost')
+EMAIL_PORT = os.environ.get('EMAIL_PORT', 1025)
+
+DATABASES = {
+    'default': dj_database_url.config(
+        env='DATABASE_URL',
+        default='postgres://database-user:database-password@localhost:5432/database-name'
+    )
+}
+
+CACHES = {
+    'default': {
+        'BACKEND': 'redis_cache.cache.RedisCache',
+        'LOCATION': os.environ.get('REDIS_LOCATION', '127.0.0.1:6379:1'),
+        'OPTIONS': {
+            'CLIENT_CLASS': 'redis_cache.client.DefaultClient',
+        }
+    }
 }

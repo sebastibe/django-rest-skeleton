@@ -8,12 +8,27 @@ Django REST Skeleton
 This is an opinionated [Django][django] project skeleton based on:
 
 * [Django REST framework][django-rest-framework]
+* Environment Variable and database urls based settings
 * Migrations with [South][south]
 * Deployment with [fabric][fabric]
 * Documentation with [Sphinx][sphinx]
 * Cache with [Redis][redis]
 
 ---
+
+Settings
+--------
+
+Set your settings values within the envdir folder in development or
+production. You need a SECRET_KEY:
+
+    $ echo "setme" > envdir/SECRET_KEY
+
+To set `Debug = True` or a database configuration:
+
+    $ echo "true" > envdir/DEBUG
+
+    $ echo "postgres://postgres@localhost:5432/project" > envdir/DATABASE_URL
 
 Database
 --------
@@ -53,9 +68,7 @@ Project layout
             database.txt <- database related dependencies
             ...
         api   <- REST API source directory
-            settings.py  <- general settings complemented by local, staging...
-            dev_settings.py
-            prod_settings.py
+            settings.py  <- settings
             ...
         docs             <- Sphinx_ documentation > make html
         manage.py
@@ -84,6 +97,17 @@ In the `/docs` folder, run the Sphinx helper:
 For documenting your Django code, be sure to to say yes to the "autodoc"
 extension. You can take a look at the [following gist][sphinx-conf-gist]
 to enable Django models discovery.
+
+Deployment
+----------
+
+Use [daemontools]'s envdir program to manage application secrets
+(SECRET_KEY, DATABASE_URL, SENTRY_DSN, etc.).
+
+Use a process watcher such as [supervisord] or [circus] to run the web
+server. Example:
+
+    command=envdir /path/to/envdir /path/to/env/bin/gunicorn api.wsgi:application -k gevent -b 127.0.0.1:8000 -w 2
 
 
 License
@@ -122,3 +146,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 [markdown]: http://pypi.python.org/pypi/Markdown/
 [postgresql]: http://www.postgresql.org/
 [redis]: http://redis.io/
+[daemontools]: http://cr.yp.to/daemontools.html
+[circus]: http://circus.readthedocs.org/
