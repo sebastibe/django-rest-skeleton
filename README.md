@@ -20,13 +20,11 @@ Settings
 --------
 
 Set your settings values within the envdir folder in development or
-production. You need a SECRET_KEY:
-
-    $ echo "setme" > envdir/SECRET_KEY
-
-To set `Debug = True` or a database configuration:
+production. To set `Debug = True` for example:
 
     $ echo "true" > envdir/DEBUG
+
+We also use heroku-like database urls:
 
     $ echo "postgres://postgres@localhost:5432/project" > envdir/DATABASE_URL
 
