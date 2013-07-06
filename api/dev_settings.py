@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import dj_database_url
+
 PROJECT = 'Django REST Skeleton (Dev)'
 HOST = 'http://localhost'
 
@@ -9,14 +11,10 @@ EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'database-name',
-        'USER': 'database-user',
-        'PASSWORD': 'database-password',
-        'HOST': '',
-        'PORT': '',
-    },
+    'default': dj_database_url.config(
+        env='DATABASE_URL',
+        default='postgres://database-user:database-password@localhost:5432/database-name'
+    )
 }
 
 CACHES = {
