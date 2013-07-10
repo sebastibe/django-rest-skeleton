@@ -1,3 +1,2 @@
--e git+https://github.com/sebastibe/django-factory_boy@48bda2c5728b3e31de45a047562d3958babdd1c7#egg=django_factory_boy-dev
-factory-boy==1.2.0
+factory-boy==2.1.1
 mock==1.0.1
