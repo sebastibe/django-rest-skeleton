@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django import forms
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import Group, Permission
 
 from rest_framework import serializers
 
@@ -14,8 +15,8 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = User
-        fields = ('url', 'username', 'email', 'auth_token', 'groups',
-                  'first_name', 'last_name', 'is_staff')
+        fields = ('url', 'username', 'email', 'auth_token', 'first_name',
+                  'last_name', 'is_staff')
 
 
 class PasswordSerializer(serializers.Serializer):
@@ -23,3 +24,13 @@ class PasswordSerializer(serializers.Serializer):
         widget=forms.PasswordInput(),
         required=False
     )
+
+
+class GroupSerializer(serializers.HyperlinkedModelSerializer):
+    permissions = serializers.SlugRelatedField(many=True,
+                                               slug_field='codename',
+                                               queryset=Permission.objects.all())
+
+    class Meta:
+        model = Group
+        fields = ('url', 'name', 'permissions')
