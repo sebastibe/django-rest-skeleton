@@ -16,6 +16,14 @@ This is an opinionated [Django][django] project skeleton based on:
 
 ---
 
+Installation
+------------
+
+After installing Django, You can install the project template with
+`django-admin.py`:
+
+    django-admin.py startproject --template=https://github.com/sebastibe/django-rest-skeleton/archive/master.zip myproject
+
 Settings
 --------
 

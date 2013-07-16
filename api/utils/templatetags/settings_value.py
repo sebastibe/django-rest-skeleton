@@ -11,7 +11,7 @@ def settings_value(name):
     Usage example:
 
     ::
-        {% settings_value "LANGUAGE_CODE" %}
+        {% templatetag openblock %} settings_value "LANGUAGE_CODE" {% templatetag closeblock %}
 
     """
     return getattr(settings, name, "")
