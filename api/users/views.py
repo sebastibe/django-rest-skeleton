@@ -23,6 +23,8 @@ User = get_user_model()
 class UserViewSet(viewsets.ModelViewSet):
     """
     To set a password, POST a `password` on the `/set_password/` url.
+
+    To set a unusuable password, set `!` as a password.
     """
     permission_classes = (IsAdminOrSelf,)
     model = User
