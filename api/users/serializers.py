@@ -12,11 +12,14 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     first_name = serializers.CharField(source='first_name', required=False)
     last_name = serializers.CharField(source='last_name', required=False)
     auth_token = serializers.CharField(read_only=True)
+    last_login_on = serializers.DateTimeField(source='last_login',
+                                              read_only=True)
+    joined_on = serializers.DateTimeField(source='date_joined', read_only=True)
 
     class Meta:
         model = User
         fields = ('url', 'username', 'email', 'auth_token', 'first_name',
-                  'last_name', 'is_staff')
+                  'last_name', 'is_staff', 'last_login_on', 'joined_on')
 
 
 class PasswordSerializer(serializers.Serializer):
