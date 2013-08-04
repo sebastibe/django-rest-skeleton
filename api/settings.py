@@ -15,10 +15,12 @@ ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost').split(',')
+
 COMPANY = 'Acme'
 
 VERSION = (0, 1, 0)  # (Major, Minor, Release)
-VERSION_STRING = '%s.%s.%s' % VERSION
+VERSION_STRING = '.'.join(map(str, VERSION))
 
 MANAGERS = ADMINS
 
