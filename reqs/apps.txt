@@ -1,4 +1,5 @@
 djangorestframework==2.3.6
+django-rest-swagger
 django-cors-headers==0.11
 django-filter==0.6
 defusedxml==0.4.1

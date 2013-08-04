@@ -120,6 +120,7 @@ INSTALLED_APPS = (
     'django_filters',
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework_swagger',
     'south',
     'gunicorn',
     # OAuth 2.0
@@ -213,6 +214,20 @@ REST_FRAMEWORK = {
     'FILTER_BACKEND': 'rest_framework.filters.DjangoFilterBackend',
 }
 
+SWAGGER_SETTINGS = {
+    "exclude_namespaces": [], # List URL namespaces to ignore
+    "api_version": VERSION_STRING, # Specify your API's version
+    "enabled_methods": [ # Specify which methods to enable in Swagger UI
+        'get',
+        'post',
+        'put',
+        'patch',
+        'delete'
+    ],
+    "api_key": '', # An API key
+    "is_authenticated": True,  # Set to True to enforce user authentication,
+    "is_superuser": True,  # Set to True to enforce admin only access
+}
 
 PROJECT = os.environ.get('PROJECT_NAME', 'Django REST Skeleton')
 HOST = os.environ.get('HOST', 'http://localhost')
