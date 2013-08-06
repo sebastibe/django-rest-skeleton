@@ -166,6 +166,8 @@ if "debug_toolbar" in INSTALLED_APPS:
     debug_mw = "debug_toolbar.middleware.DebugToolbarMiddleware"
     MIDDLEWARE_CLASSES += (debug_mw,)
 
+AUTH_USER_MODEL = 'users.User'
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.

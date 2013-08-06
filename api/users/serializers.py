@@ -18,8 +18,9 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = User
-        fields = ('url', 'username', 'email', 'auth_token', 'first_name',
-                  'last_name', 'is_staff', 'last_login_on', 'joined_on')
+        fields = ('url', 'email', 'auth_token', 'first_name',
+                  'last_name', 'is_staff', 'last_login_on',
+                  'joined_on')
 
 
 class PasswordSerializer(serializers.Serializer):
