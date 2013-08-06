@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 # Django settings for api project.
 
+import sys
 import os
 
 import dj_database_url
 
 DEBUG = bool(os.environ.get('DEBUG', False))
 TEMPLATE_DEBUG = DEBUG
+
+TESTING = 'test' in sys.argv
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 BASE_PATH = os.path.dirname(PROJECT_ROOT)
@@ -76,7 +79,10 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = os.environ['SECRET_KEY']
+if not TESTING:
+    SECRET_KEY = os.environ['SECRET_KEY']
+else:
+    SECRET_KEY = 'secret'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
