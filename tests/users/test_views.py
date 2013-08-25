@@ -13,7 +13,7 @@ from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.contrib.auth import get_user_model
 
-from rest_framework.tests.utils import Client
+from rest_framework.test import APIClient as Client
 
 from .factories import UserF, GroupF
 
