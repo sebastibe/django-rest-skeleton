@@ -13,7 +13,7 @@ from django.core.mail import send_mail
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import (AbstractBaseUser, PermissionsMixin,
-    BaseUserManager)
+                                        BaseUserManager)
 
 from rest_framework.authtoken.models import Token
 
@@ -52,7 +52,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     Email and password are required. Other fields are optional.
     """
     uid = ShortUUIDField(help_text=_("The unique ID under which the"
-                                " user is to be accessed."))
+                                     " user is to be accessed."))
     email = models.EmailField(_('email address'), unique=True, max_length=254)
     first_name = models.CharField(_('first name'), max_length=30, blank=True)
     last_name = models.CharField(_('last name'), max_length=30, blank=True)

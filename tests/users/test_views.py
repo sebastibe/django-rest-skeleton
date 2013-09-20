@@ -3,8 +3,9 @@
 tests.users.test_views
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-This module implements view tests which can be seen as "smoke tests" considering
-they go through the whole application stack for the users API end-points.
+This module implements view tests which can be seen as "smoke tests"
+considering they go through the whole application stack for the users
+API end-points.
 
 """
 import json
@@ -86,7 +87,7 @@ class UsersAPITestCase(TestCase):
             # in PUT, all mandatory fields must be provided
             'first_name': 'new-user-first-name',
             'email': 'new_email@example.com',
-            }
+        }
         url = reverse('user-detail', kwargs={'pk': user.pk})
         res = self.client.put(url, json.dumps(data),
                               content_type='application/json')
@@ -234,7 +235,7 @@ class GroupsAPITestCase(TestCase):
         }
         url = reverse('group-detail', kwargs={'pk': group.pk})
         res = self.client.patch(url, json.dumps(data),
-                              content_type='application/json')
+                                content_type='application/json')
         content = json.loads(res.content)
         self.assertEqual(res.status_code, 200)
         self.assertEqual(content['name'], data['name'])

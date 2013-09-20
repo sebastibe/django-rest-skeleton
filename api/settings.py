@@ -75,10 +75,10 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    #  'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-# Make this unique, and don't share it with anybody.
+#  Make this unique, and don't share it with anybody.
 if not TESTING:
     SECRET_KEY = os.environ['SECRET_KEY']
 else:
@@ -88,7 +88,7 @@ else:
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    #  'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -225,16 +225,16 @@ REST_FRAMEWORK = {
 }
 
 SWAGGER_SETTINGS = {
-    "exclude_namespaces": [], # List URL namespaces to ignore
-    "api_version": VERSION_STRING, # Specify your API's version
-    "enabled_methods": [ # Specify which methods to enable in Swagger UI
+    "exclude_namespaces": [],  # List URL namespaces to ignore
+    "api_version": VERSION_STRING,  # Specify your API's version
+    "enabled_methods": [  # Specify which methods to enable in Swagger UI
         'get',
         'post',
         'put',
         'patch',
         'delete'
     ],
-    "api_key": '', # An API key
+    "api_key": '',  # An API key
     "is_authenticated": True,  # Set to True to enforce user authentication,
     "is_superuser": True,  # Set to True to enforce admin only access
 }

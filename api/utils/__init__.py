@@ -10,7 +10,7 @@ def sane_repr(*attrs):
         cls = type(self).__name__
 
         pairs = ('%s=%s' % (a, repr(getattr(self, a, None)))
-            for a in attrs)
+                 for a in attrs)
 
         return u'<%s at 0x%x: %s>' % (cls, id(self), ', '.join(pairs))
 

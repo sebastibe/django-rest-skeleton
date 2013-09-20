@@ -5,7 +5,7 @@ from rest_framework.permissions import IsAdminUser
 
 
 @api_view(['GET'])
-@permission_classes([IsAdminUser,])
+@permission_classes([IsAdminUser, ])
 def api_root(request, format=None):
     """
     The entry endpoint of our API.
