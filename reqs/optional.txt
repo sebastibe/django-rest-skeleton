@@ -1,0 +1,6 @@
+django-oauth2-provider==0.2.6
+factory-boy==2.2.1
+mock==1.0.1
+django-debug-toolbar==0.9.4
+Sphinx==1.2b1
+Markdown==2.2.1

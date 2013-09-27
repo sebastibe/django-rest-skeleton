@@ -1,6 +1,4 @@
--r django.txt
--r apps.txt
--r database.txt
+-r required.txt
+-r optional.txt
 -r testing.txt
 -r deploy.txt
--r dev.txt

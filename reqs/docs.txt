@@ -1,2 +1,0 @@
-Sphinx==1.2b1
-Markdown==2.2.1
