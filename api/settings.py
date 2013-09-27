@@ -248,7 +248,7 @@ EMAIL_PORT = os.environ.get('EMAIL_PORT', 1025)
 DATABASES = {
     'default': dj_database_url.config(
         env='DATABASE_URL',
-        default='postgres://database-user:database-password@localhost:5432/database-name'
+        default='postgres://user:password@localhost:5432/dbname'
     )
 }
 
