@@ -131,9 +131,7 @@ INSTALLED_APPS = (
     'rest_framework_swagger',
     'south',
     'gunicorn',
-    # OAuth 2.0
-    # 'provider',
-    # 'provider.oauth2',
+
     # Uncomment the next line to enable CORS with django-cors-headers
     # 'corsheaders',
 
@@ -141,6 +139,28 @@ INSTALLED_APPS = (
     'api.utils',
     'api.users',
 )
+
+# OAuth is optional and won't work if there is no oauth_provider & oauth2
+try:
+    import oauth_provider
+    import oauth2
+except ImportError:
+    pass
+else:
+    INSTALLED_APPS += (
+        'oauth_provider',
+    )
+
+try:
+    import provider
+except ImportError:
+    pass
+else:
+    INSTALLED_APPS += (
+        'provider',
+        'provider.oauth2',
+    )
+
 
 if 'SENTRY_DSN' in os.environ:
     INSTALLED_APPS += (
