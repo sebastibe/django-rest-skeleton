@@ -1,4 +1,4 @@
-Django==1.5.4
+Django==1.5.5
 django-extensions==1.2.2
 psycopg2==2.5.1
 django-redis==3.3
