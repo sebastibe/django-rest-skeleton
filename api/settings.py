@@ -241,7 +241,10 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ),
-    'FILTER_BACKEND': 'rest_framework.filters.DjangoFilterBackend',
+    'DEFAULT_FILTER_BACKENDS': (
+        'rest_framework.filters.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+    ),
 }
 
 SWAGGER_SETTINGS = {
