@@ -221,8 +221,6 @@ LOGGING = {
 # This would be if you put all your tests within a top-level 'tests' package.
 TEST_DISCOVERY_ROOT = os.path.join(BASE_PATH, 'tests')
 
-TEST_RUNNER = 'tests.runner.DiscoveryRunner'
-
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
     'PAGINATE_BY': 10,
