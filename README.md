@@ -1,7 +1,7 @@
 Django REST Skeleton
 ====================
 
-**A Django REST framework project template for quickly bootstraping APIs**
+**A Django REST framework project template for quickly bootstraping REST APIs**
 
 ---
 
@@ -42,8 +42,8 @@ Database
 Setup [PostgreSQL][postgresql], preferably by running the commands as a
 `postgres` user with `sudo -u postgres`:
 
-    $ createuser -d -A -P user
-    $ createdb -O user dbname
+    $ createuser -d -A -P username
+    $ createdb -O username dbname
 
 No need of `-d` option when creating database in production.
 
