@@ -1,6 +1,7 @@
-django-oauth2-provider==0.2.6
-factory-boy==2.3.0
+django-oauth2-provider==0.2.6.1
+factory-boy==2.3.1
 mock==1.0.1
-django-debug-toolbar==1.0
-Sphinx==1.2
-Markdown==2.3.1
+django-debug-toolbar==1.2.1
+Sphinx==1.2.2
+Markdown==2.4.1
+django-rest-swagger==0.1.14

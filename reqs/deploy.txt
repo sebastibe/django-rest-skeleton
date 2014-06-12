@@ -1,1 +1,1 @@
-fabtools==0.15.0
+fabtools==0.18.0
