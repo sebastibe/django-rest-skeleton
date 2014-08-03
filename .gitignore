@@ -7,6 +7,7 @@ data/
 gen/
 .webassets-cache/
 .DS_Store
+.idea/
 
 # Ignore built docs..
 docs/build
