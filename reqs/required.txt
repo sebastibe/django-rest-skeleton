@@ -8,7 +8,6 @@ django-cors-headers==0.12
 django-filter==0.7
 defusedxml
 south<2.0
-gunicorn
 dj-database-url
 shortuuid
 pytz

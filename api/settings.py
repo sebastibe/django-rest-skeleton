@@ -130,7 +130,6 @@ INSTALLED_APPS = (
     'rest_framework.authtoken',
     'rest_framework_swagger',
     'south',
-    'gunicorn',
 
     # Uncomment the next line to enable CORS with django-cors-headers
     # 'corsheaders',
