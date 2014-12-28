@@ -3,10 +3,9 @@ django-extensions==1.4.9
 psycopg2==2.5.4
 django-redis==3.8.0
 djangorestframework==2.3.14
-django-cors-headers==0.12
-django-filter==0.7
+django-cors-headers==1.0.0
+django-filter==0.9.1
 defusedxml==0.4.1
-shortuuid
-dj-database-url==0.3.0
 shortuuid==0.4.2
+dj-database-url==0.3.0
 pytz==2014.10
