@@ -19,9 +19,6 @@ urlpatterns = patterns('',  # noqa
     # url(r'^admin/', include(admin.site.urls)),
 
     url(r'', include('api.users.urls')),
-
-    # swagger doc
-    url(r'^api-docs/', include('rest_framework_swagger.urls')),
 )
 
 # Format suffixes

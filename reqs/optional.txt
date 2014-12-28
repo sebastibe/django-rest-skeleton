@@ -3,4 +3,3 @@ mock==1.0.1
 django-debug-toolbar==1.2.2
 Sphinx==1.2.2
 Markdown==2.5.2
-django-rest-swagger==0.1.14
