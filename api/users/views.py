@@ -11,7 +11,7 @@ from django.contrib.auth.models import Group
 
 from rest_framework import viewsets, status
 from rest_framework.response import Response
-from rest_framework.decorators import action
+from rest_framework.decorators import detail_route
 from rest_framework.permissions import IsAdminUser
 
 from .serializers import UserSerializer, PasswordSerializer, GroupSerializer
@@ -26,11 +26,11 @@ class UserViewSet(viewsets.ModelViewSet):
 
     To set a unusuable password, set `!` as a password.
     """
-    permission_classes = (IsAdminOrSelf,)
-    model = User
+    queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = (IsAdminOrSelf,)
 
-    @action()
+    @detail_route(methods=['post'])
     def set_password(self, request, pk=None):
         user = self.get_object()
         serializer = PasswordSerializer(data=request.DATA)
@@ -51,6 +51,6 @@ class GroupViewSet(viewsets.ModelViewSet):
     """
     API endpoint that represents a single or list of groups.
     """
-    model = Group
-    permission_classes = (IsAdminUser,)
+    queryset = Group.objects.all()
     serializer_class = GroupSerializer
+    permission_classes = (IsAdminUser,)

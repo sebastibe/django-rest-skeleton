@@ -243,7 +243,7 @@ REST_FRAMEWORK = {
     ),
 }
 
-PROJECT = os.environ.get('PROJECT_NAME', 'Django REST Skeleton')
+PROJECT_NAME = os.environ.get('PROJECT_NAME', 'Django REST Skeleton')
 HOST = os.environ.get('HOST', 'http://localhost')
 
 EMAIL_HOST = os.environ.get('EMAIL_HOST', 'localhost')
