@@ -37,6 +37,5 @@ urlpatterns += patterns('rest_framework',  # noqa
 # Disallow robots to crawl the doc
 urlpatterns += patterns('',  # noqa
     url(r'^robots\.txt$',
-        lambda r: HttpResponse("User-agent: *\nDisallow: /",
-                               mimetype="text/plain")),
+        lambda r: HttpResponse("User-agent: *\nDisallow: /", mimetype="text/plain")),
 )

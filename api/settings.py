@@ -129,7 +129,6 @@ INSTALLED_APPS = (
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_swagger',
-    'south',
 
     # Uncomment the next line to enable CORS with django-cors-headers
     # 'corsheaders',
@@ -219,6 +218,7 @@ LOGGING = {
 # testing
 # This would be if you put all your tests within a top-level 'tests' package.
 TEST_DISCOVERY_ROOT = os.path.join(BASE_PATH, 'tests')
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
